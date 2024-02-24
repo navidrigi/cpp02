@@ -1,8 +1,23 @@
 #include "Fixed.hpp"
+#include <cmath>
 
 Fixed::Fixed() : value_(0)
 {
 	std::cout << "Default constructor called" << std::endl;
+}
+
+Fixed::Fixed(const int value)
+{
+	std::cout << "Int constructor called" << std::endl;
+	setRawBits(value);
+}
+
+Fixed::Fixed(const float value)
+{
+	std::cout << "Float constructor called" << std::endl;
+	int scaled = static_cast<int>(value * pow(2, fractional_));
+	int integerPart = scaled >> fractional_;
+	int floatPart = scaled & ((1 << fractional_) - 1);
 }
 
 Fixed::Fixed(const Fixed &other)
@@ -34,3 +49,7 @@ void	Fixed::setRawBits( int const raw )
 {
 	value_ = raw;
 }
+
+float	Fixed::toFloat( void ) const;
+
+int		Fixed::toInt( void ) const;
