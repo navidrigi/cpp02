@@ -1,6 +1,7 @@
 #pragma once
 
 #include <iostream>
+#include <cmath>
 
 class Fixed
 {
@@ -16,6 +17,8 @@ class Fixed
 		float	toFloat( void ) const;
 		int		toInt( void ) const;
 	private:
-		int					value_;
-		static const int	fractional_ = 8;
+		static const int	fractionalBits_ = 8;
+		float				floatFixedValue_;
 };
+
+std::ostream& operator<<(std::ostream& output, const Fixed &obj);
