@@ -98,22 +98,22 @@ bool	Fixed::operator!=(const Fixed &other)
 	return (this->getRawBits() != other.getRawBits());
 }
 
-float	Fixed::operator+(const Fixed &other)
+float	Fixed::operator+(const Fixed &other) // +
 {
 	return (this->toFloat() + other.toFloat());
 }
 
-float	Fixed::operator-(const Fixed &other)
+float	Fixed::operator-(const Fixed &other) // -
 {
 	return (this->toFloat() - other.toFloat());
 }
 
-float	Fixed::operator*(const Fixed &other)
+float	Fixed::operator*(const Fixed &other) // *
 {
 	return (this->toFloat() * other.toFloat());
 }
 
-float	Fixed::operator/(const Fixed &other)
+float	Fixed::operator/(const Fixed &other) // /
 {
 	return (this->toFloat() / other.toFloat());
 }
