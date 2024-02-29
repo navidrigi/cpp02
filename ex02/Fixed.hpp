@@ -16,9 +16,26 @@ class Fixed
 		void	setRawBits( int const raw );
 		float	toFloat( void ) const;
 		int		toInt( void ) const;
+		bool	operator>(const Fixed &other);
+		bool	operator<(const Fixed &other);
+		bool	operator>=(const Fixed &other);
+		bool	operator<=(const Fixed &other);
+		bool	operator==(const Fixed &other);
+		bool	operator!=(const Fixed &other);
+		float	operator+(const Fixed &other);
+		float	operator-(const Fixed &other);
+		float	operator*(const Fixed &other);
+		float	operator/(const Fixed &other);
+		Fixed	&operator++();
+		Fixed	operator++(int);
+		Fixed	&operator--();
+		Fixed	operator--(int);
+		static Fixed	min(Fixed &obj1, Fixed &obj2);
+		static float	min(const Fixed &obj1, const Fixed &obj2);
+		static Fixed	max(Fixed &obj1, Fixed &obj2);
+		static float	max(const Fixed &obj1, const Fixed &obj2);
 	private:
 		static const int	fractionalBits_ = 8;
-		// float				floatFixedValue_;
 		int					value_;
 };
 
