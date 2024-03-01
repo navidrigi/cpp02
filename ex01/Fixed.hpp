@@ -5,6 +5,9 @@
 
 class Fixed
 {
+	private:
+		int					value_;
+		static const int	fractionalBits_ = 8;
 	public:
 		Fixed();
 		Fixed(const int);
@@ -16,10 +19,6 @@ class Fixed
 		void	setRawBits( int const raw );
 		float	toFloat( void ) const;
 		int		toInt( void ) const;
-	private:
-		static const int	fractionalBits_ = 8;
-		// float				floatFixedValue_;
-		int					value_;
 };
 
 std::ostream& operator<<(std::ostream& output, const Fixed &obj);
