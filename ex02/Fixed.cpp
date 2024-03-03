@@ -68,54 +68,54 @@ std::ostream& operator<<(std::ostream& output, const Fixed &obj) // <<
     return output;
 }
 
-bool	Fixed::operator>(const Fixed &other) // >
+bool	Fixed::operator>(const Fixed &other) const // >
 {
 	return (this->getRawBits() > other.getRawBits());
 }
 
-bool	Fixed::operator<(const Fixed &other) // <
+bool	Fixed::operator<(const Fixed &other) const // <
 {
 	return (this->getRawBits() < other.getRawBits());
 }
 
-bool	Fixed::operator>=(const Fixed &other) // >=
+bool	Fixed::operator>=(const Fixed &other) const // >=
 {
 	return (this->getRawBits() >= other.getRawBits());
 }
 
-bool	Fixed::operator<=(const Fixed &other) // <=
+bool	Fixed::operator<=(const Fixed &other) const // <=
 {
 	return (this->getRawBits() <= other.getRawBits());
 }
 
-bool	Fixed::operator==(const Fixed &other) // ==
+bool	Fixed::operator==(const Fixed &other) const // ==
 {
 	return (this->getRawBits() == other.getRawBits());
 }
 
-bool	Fixed::operator!=(const Fixed &other) // !=
+bool	Fixed::operator!=(const Fixed &other) const // !=
 {
 	return (this->getRawBits() != other.getRawBits());
 }
 
-float	Fixed::operator+(const Fixed &other) // +
+Fixed	Fixed::operator+(const Fixed &other) const // +
 {
-	return (this->toFloat() + other.toFloat());
+	return Fixed(this->toFloat() + other.toFloat());
 }
 
-float	Fixed::operator-(const Fixed &other) // -
+Fixed	Fixed::operator-(const Fixed &other) const // -
 {
-	return (this->toFloat() - other.toFloat());
+	return Fixed(this->toFloat() - other.toFloat());
 }
 
-float	Fixed::operator*(const Fixed &other) // *
+Fixed	Fixed::operator*(const Fixed &other) const // *
 {
-	return (this->toFloat() * other.toFloat());
+	return Fixed(this->toFloat() * other.toFloat());
 }
 
-float	Fixed::operator/(const Fixed &other) // /
+Fixed	Fixed::operator/(const Fixed &other) const // /
 {
-	return (this->toFloat() / other.toFloat());
+	return Fixed(this->toFloat() / other.toFloat());
 }
 
 Fixed	&Fixed::operator++() // ++a
@@ -146,22 +146,22 @@ Fixed	Fixed::operator--(int) // a--
 	return old;
 }
 
-Fixed	Fixed::min(Fixed &obj1, Fixed &obj2)
+Fixed	&Fixed::min(Fixed &obj1, Fixed &obj2)
 {
 	return ((obj1 < obj2 ? obj1 : obj2));
 }
 
-float	Fixed::min(const Fixed &obj1, const Fixed &obj2)
+const Fixed	&Fixed::min(const Fixed &obj1, const Fixed &obj2)
 {
-	return ((obj1.toFloat() < obj2.toFloat() ? obj1.toFloat() : obj2.toFloat()));
+	return (obj1 < obj2 ? obj1 : obj2);
 }
 
-Fixed	Fixed::max(Fixed &obj1, Fixed &obj2)
+Fixed	&Fixed::max(Fixed &obj1, Fixed &obj2)
 {
-	return ((obj1 > obj2 ? obj1 : obj2));
+	return (obj1 > obj2 ? obj1 : obj2);
 }
 
-float	Fixed::max(const Fixed &obj1, const Fixed &obj2)
+const Fixed	&Fixed::max(const Fixed &obj1, const Fixed &obj2)
 {
-	return ((obj1.toFloat() > obj2.toFloat() ? obj1.toFloat() : obj2.toFloat()));
+	return (obj1 > obj2 ? obj1 : obj2);
 }
