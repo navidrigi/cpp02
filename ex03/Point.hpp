@@ -16,3 +16,4 @@ class Point
 		static bool		bsp( Point const a, Point const b, Point const c, Point const point);
 		static float	calculateArea( Point const a, Point const b, Point const c );
 };
+// does not work

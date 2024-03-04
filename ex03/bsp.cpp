@@ -24,3 +24,4 @@ bool	Point::bsp( Point const a, Point const b, Point const c, Point const point)
 		return true;
 	return false;
 }
+// does not work

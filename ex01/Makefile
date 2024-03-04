@@ -2,7 +2,7 @@ CXX			=	c++
 CXXFLAGS	=	-Wall -Werror -Wextra -std=c++98
 SRC			=	$(wildcard *.cpp)
 HDR			=	$(wildcard *.hpp)
-NAME		=	fixed
+NAME		=	fixed2
 
 all: $(NAME)
 

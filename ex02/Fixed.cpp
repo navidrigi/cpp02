@@ -16,10 +16,20 @@ Fixed::Fixed(const float value)
 	float	temp;
 
 	temp = value * (1 << fractionalBits_);
-	if (roundf(temp) < temp)
-		temp = roundf(temp) + 1;
+	if (temp >= 0)
+	{
+		if (roundf(temp) < temp)
+			temp = roundf(temp) + 1;
+		else
+			temp = roundf(temp);
+	}
 	else
-		temp = roundf(temp);
+	{
+		if (roundf(temp) < temp)
+			temp = roundf(temp);
+		else
+			temp = roundf(temp) + 1;
+	}
 	setRawBits(temp);
 }
 

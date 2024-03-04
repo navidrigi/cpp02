@@ -22,3 +22,4 @@ Point &Point::operator=(const Point &other)
 Point::~Point()
 {
 }
+// does not work
